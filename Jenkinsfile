@@ -26,12 +26,12 @@ pipeline {
      stage('Deploy') {
             steps {
                script {
-                    def dockerCmd = 'sudo docker run -itd --name My-first-containe21 -p 8081:80 tharunselvarangam/phpprojectv1'
-                    sshagent(credentials: ['ubuntu']) {
+                    //def dockerCmd = 'sudo docker run -itd --name My-first-containe21 -p 8081:80 tharunselvarangam/phpprojectv1'
+                    //sshagent(['ubuntu']) {
                         //chnage the private ip in below code
-                        // sh "docker run -itd --name My-first-containe -p 8082:80 tharunselvarangam/phpprojectv1"
-                         sh "ssh -o StrictHostKeyChecking=no ubuntu@52.63.70.241 ${dockerCmd}"
-                    }
+                        sh "docker run -itd --name My-first-containe -p 8081:80 tharunselvarangam/phpprojectv1"
+                         // sh "ssh -o StrictHostKeyChecking=no ubuntu@52.63.70.241 ${dockerCmd}"
+                    //}
                 }
             }
         }
